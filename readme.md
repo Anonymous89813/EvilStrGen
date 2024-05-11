@@ -19,7 +19,7 @@ cd EvilStrGen // Enter the root directory of the project
 mkdir build && cd build // create build directory
 cmake .. //load cmakelist file
 make // compile into .exe file
-./EvilStrGen [Regex] [OutputFile] [EngineType] [Attack String Length] 
+./EvilStrGen [Regex] [OutputFile] [EngineType] [Attack String Length] [Is the number of regexes in the file greater than one]
 ```
 
 ### Batch Processing
