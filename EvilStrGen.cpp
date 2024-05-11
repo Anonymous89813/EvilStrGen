@@ -8,7 +8,7 @@ using namespace re2;
 //\w[s123456789qwertyuioasdfghjkzxcvbnASDFGHJQWERTYUZXCVBNMdacabcdcbmrtyw1248]
 int main(int argc, char *argv[]) {
     if (argc != 6){
-        std::cout << "Usage: EvilStrGen [Regex] [OutputFile] [EngineType] [Attack String Length]" << std::endl;
+        std::cout << "Usage: EvilStrGen [Regex] [OutputFile] [EngineType] [Attack String Length] [Is the number of regexes in the file greater than one]" << std::endl;
         std::cout << "[Regex] is a file which contain a regex" << std::endl;
         std::cout << "[OutputFile] is a file where the candidate attack string will be write to" << std::endl;
         std::cout << "[EngineType] is the id of regex engine "
@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
                      "\n 17 ---- Backtracking"
                      "\n 18 ---- NonBacktracking" << std::endl;
         std::cout << "[Attack String Length] is MaxLength of candidate attack string" << std::endl;
+        std::cout << "Is the number of regexes in the file greater than one" << std::endl;
         return 0;
     }
     if (std::stoi(argv[5]) == 1){
