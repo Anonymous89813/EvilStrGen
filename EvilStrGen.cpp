@@ -35,14 +35,14 @@ int main(int argc, char *argv[]) {
         return 0;
     }
     if (std::stoi(argv[5]) == 1){
-        int ID = 1;
+        int ID = 1; 
         int length = std::stoi(argv[4]);
         std::ifstream in_regex(argv[1]);
-        std::string regex;
+        std::string regex; 
         std::string InputDirectoryName(argv[2]);
         while (std::getline(in_regex, regex))
         {
-            std::string InputFileName = InputDirectoryName + "/" + std::to_string(ID) + ".txt";
+            std::string InputFileName = InputDirectoryName + "/" + std::to_string(ID);
             regex = regex + '$';
             re2::RE2 Regex = re2::RE2(regex);
             re2::Prog* P = Regex.RetProg();
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
                 ID++;
                 continue;
             }
-            std::cout << ID << std::endl;
+            std::cout << "RegexID: " << ID << std::endl;
             P->EvilStrGen(Prog::kFullMatch, Prog::ALLSTRAT_ON, re2::Prog::RE2, length, regex, 1, 3, InputFileName);
             ID++;
         }

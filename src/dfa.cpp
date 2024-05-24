@@ -1836,6 +1836,7 @@ namespace re2 {
             case awk:{
                 std::string ReDoS_file_txt = ReDoS_file + ".txt";
                 if (GetDFA(Prog::kFullMatch)->BFS_DFA_Cover(PathLength, regex, regex_id, ReDoS_file_txt) == 1){
+                    return true;
                     for (int i = 0; i < restart_times; i++){
                         int upper_bound = 1;
                         std::string Partial_regex = regex;
@@ -1853,9 +1854,9 @@ namespace re2 {
                     vector<string> All_Regex;
                     All_Regex = Pretreatment(regex);
                     int id = 0;
-                    if (mkdir(ReDoS_file.c_str(), 0777) == -1){
-                        return false;
-                    }
+                    // if (mkdir(ReDoS_file.c_str(), 0777) == -1){
+                    //     return false;
+                    // }
                     for (auto it : All_Regex){
                         id++;
                         std::string OutFile = ReDoS_file + '/' + to_string(id) + ".txt";
@@ -1865,8 +1866,9 @@ namespace re2 {
                         re2::Prog* P = t.RetProg();
                         if (P == nullptr)
                             continue;
-                        if (P->GetDFA(Prog::kFullMatch)->BFS_DFA_Cover(PathLength, it, regex_id, OutFile) == 1){
+                        if (P->GetDFA(Prog::kFullMatch)->BFS_DFA_Cover(PathLength, it, regex_id, ReDoS_file_txt) == 1){
                             Is_Out = true;
+                            break;
                         }
                     }
                     if (Is_Out)

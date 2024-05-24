@@ -422,6 +422,7 @@ int DFA::Hamilton_Deep_Mul_Search() {
     for (auto c : LongestStr)
         outfile << char(c);
     outfile.close();
+    return 1;
 }
 
 
@@ -1378,10 +1379,10 @@ int DFA::BFS_DFA_Cover(int length, std::string regex, int regex_id, std::string 
 //        Outfile_regex << regex;
 //        //Outfile_regex << "/home/huangh/PureEvilTxTGen/attack_BackTrack100000snort_text/" + std::to_string(regex_id) + ".txt";
 //        std::cout << m.size() << std::endl;
-        std::cout << regex + " has redos" << std::endl;
+        // std::cout << regex + " has redos" << std::endl;
         std::ofstream Outfile;
 //        filename = R"(D:\\hhcode\\PureEvilTxTGen\\backtrack_attack_txt\\)" + std::to_string(regex_id) + ".txt";
-        std::cout << "write file" << std::endl;
+        std::cout << "writing file" << std::endl;
 
 //      write regexes
         Outfile.open(ReDoS_file);
